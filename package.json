@@ -1,0 +1,55 @@
+{
+  "name": "dsh-open-project",
+  "version": "0.1.0",
+  "description": "Open Project badge for the DSH composer: the AI records a per-conversation file/folder target, one click opens it. 对话输入框的【打开项目】徽标。",
+  "type": "module",
+  "license": "MIT",
+  "author": "ChongYuGit <ChongYuWork@outlook.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChongYuGit/dsh-open-project.git"
+  },
+  "homepage": "https://github.com/ChongYuGit/dsh-open-project#readme",
+  "bugs": {
+    "url": "https://github.com/ChongYuGit/dsh-open-project/issues"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "deepseek",
+    "open-project",
+    "launcher",
+    "composer"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE",
+    "test"
+  ],
+  "scripts": {
+    "test": "node --test test/host.test.mjs"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
+    }
+  }
+}
